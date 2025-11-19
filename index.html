@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кровати-трансформеры Udobna | Ростов-на-Дону</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    
+    <!-- Подключаем наши стили -->
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <header class="hero" id="hero-section">
+        <div class="container hero-content">
+            <h1>Кровать-трансформер Udobna</h1>
+            <p>Самое понятное ценообразование!<br>Делаем для людей: качественно, надежно, выгодно</p>
+
+            <!-- ДОБАВЛЯЕМ КНОПКУ ЗДЕСЬ: -->
+            <a href="https://wa.me/79885155515" class="hero-btn" target="_blank">Заказать</a>
+        </div>
+    </header>
+
+    <section class="modules-section">
+        <div class="container">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper" id="swiper-wrapper">
+                    <!-- Слайды -->
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="config.js"></script>
+
+    <script>
+        // 1. Фон
+        const heroSection = document.getElementById('hero-section');
+        if (typeof heroCover !== 'undefined' && heroCover) {
+            heroSection.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/${heroCover}')`;
+        }
+
+        // 2. Генерация слайдов
+        const wrapper = document.getElementById('swiper-wrapper');
+        
+        if (typeof sliderImages !== 'undefined' && sliderImages.length > 0) {
+            sliderImages.forEach(fileName => {
+                const slideDiv = document.createElement('div');
+                slideDiv.className = 'swiper-slide';
+                const img = document.createElement('img');
+                img.src = `images/${fileName}`;
+                img.alt = "Модуль";
+                slideDiv.appendChild(img);
+                wrapper.appendChild(slideDiv);
+            });
+        }
+
+        // 3. Настройка Swiper
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            centeredSlides: true,
+            slideToClickedSlide: true,
+            speed: 600,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                640: {
+                    slidesPerView: 1.6,
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 40,
+                },
+            },
+        });
+    </script>
+</body>
+</html>
