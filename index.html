@@ -5,31 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кровати-трансформеры Udobna | Ростов-на-Дону</title>
     
+    <!-- Шрифты (Включая жирный 800) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Стили Swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     
-    <!-- Подключаем наши стили -->
+    <!-- Наши стили -->
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
 
+    <!-- 1. ОБЛОЖКА -->
     <header class="hero" id="hero-section">
         <div class="container hero-content">
             <h1>Кровать-трансформер Udobna</h1>
             <p>Самое понятное ценообразование!<br>Делаем для людей: качественно, надежно, выгодно</p>
-
-            <!-- ДОБАВЛЯЕМ КНОПКУ ЗДЕСЬ: -->
             <a href="https://wa.me/79885155515" class="hero-btn" target="_blank">Заказать</a>
         </div>
     </header>
 
+    <!-- 2. СЛАЙДЕР МОДУЛЕЙ -->
     <section class="modules-section">
         <div class="container">
+            
+            <div class="section-header">
+                <h2>Универсальные модули</h2>
+                <p class="subtitle">Мы разработали стандартные модули по самым низким ценам.<br>Вы можете самостоятельно собрать комплект мебели.</p>
+            </div>
+
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper" id="swiper-wrapper">
-                    <!-- Слайды -->
+                    <!-- Слайды создаются скриптом -->
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -38,60 +47,62 @@
         </div>
     </section>
 
+    <!-- 3. БЛОК "О НАС" -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title-center">Немного о нас</h2>
+            
+            <div class="about-grid">
+                <!-- Левая часть: Фото (меняется по клику) -->
+                <div class="about-image-wrapper">
+                    <img src="" alt="Производство Udobna" class="about-img" id="about-dynamic-img">
+                </div>
+
+                <!-- Правая часть: Текст и иконки -->
+                <div class="about-content">
+                    
+                    <!-- Пункт 1 -->
+                    <div class="about-item">
+                        <div class="about-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2z"/></svg>
+                        </div>
+                        <div class="about-text">
+                            <h3>Мы. Есть. Udobna.</h3>
+                            <p>У нас свое производство <strong>более 15 лет</strong>, без посредников, перекупов и офисов. Вы покупаете мебель напрямую из цеха в Ростове.</p>
+                        </div>
+                    </div>
+
+                    <!-- Пункт 2 -->
+                    <div class="about-item">
+                        <div class="about-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+                        </div>
+                        <div class="about-text">
+                            <h3>Экономим на процессах, а не на качестве</h3>
+                            <p>Мы внедрили понятную систему готовых модулей и ограничились <strong>самыми популярными материалами</strong> и цветами, чтобы предложить нашим клиентам максимально качественный продукт, но гораздо выгоднее.</p>
+                        </div>
+                    </div>
+
+                    <!-- Пункт 3 -->
+                    <div class="about-item">
+                        <div class="about-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        </div>
+                        <div class="about-text">
+                            <h3>Наша философия</h3>
+                            <p>Мы понимаем, что времена сейчас непростые. Наша цель — сделать так, чтобы каждая семья, живущая в небольшой квартире, могла позволить себе комфортный сон и простор, <strong>не влезая в кредиты</strong>.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Скрипты (Порядок важен!) -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="config.js"></script>
+    <script src="script.js"></script>
 
-    <script>
-        // 1. Фон
-        const heroSection = document.getElementById('hero-section');
-        if (typeof heroCover !== 'undefined' && heroCover) {
-            heroSection.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/${heroCover}')`;
-        }
-
-        // 2. Генерация слайдов
-        const wrapper = document.getElementById('swiper-wrapper');
-        
-        if (typeof sliderImages !== 'undefined' && sliderImages.length > 0) {
-            sliderImages.forEach(fileName => {
-                const slideDiv = document.createElement('div');
-                slideDiv.className = 'swiper-slide';
-                const img = document.createElement('img');
-                img.src = `images/${fileName}`;
-                img.alt = "Модуль";
-                slideDiv.appendChild(img);
-                wrapper.appendChild(slideDiv);
-            });
-        }
-
-        // 3. Настройка Swiper
-        var swiper = new Swiper(".mySwiper", {
-            loop: true,
-            centeredSlides: true,
-            slideToClickedSlide: true,
-            speed: 600,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            breakpoints: {
-                320: {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                },
-                640: {
-                    slidesPerView: 1.6,
-                    spaceBetween: 30,
-                },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 40,
-                },
-            },
-        });
-    </script>
 </body>
 </html>

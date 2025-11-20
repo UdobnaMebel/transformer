@@ -1,9 +1,9 @@
-/* --- НАСТРОЙКИ ЦВЕТОВ --- */
+/* --- ШРИФТЫ И ПЕРЕМЕННЫЕ --- */
 :root {
     --bg-color: #EDEDED; 
     --text-main: #333333;
-    --accent-yellow: #F7CE5D;
-    --accent-hover: #ffca2c;
+    --accent-yellow: #FFD54F;
+    --accent-hover: #e0b128;
     --white: #ffffff;
 }
 
@@ -16,10 +16,15 @@ body {
     overflow-x: hidden;
 }
 
+/* Жирный шрифт для выделений */
+strong, b {
+    font-weight: 800 !important;
+}
+
 h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-/* --- ОБЛОЖКА (HERO) --- */
+/* --- 1. ОБЛОЖКА (HERO) --- */
 .hero {
     position: relative;
     height: 85vh;
@@ -34,15 +39,11 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; }
     color: var(--white);
 }
 
-/* Затемнение фона обложки */
 .hero::before {
     content: '';
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    
-    /* --- НАСТРОЙКА ЗАТЕМНЕНИЯ ОБЛОЖКИ (0.0 - прозрачно, 1.0 - черно) --- */
-    background: rgba(0, 0, 0, 0.4); 
-    
+    background: rgba(0, 0, 0, 0.5); /* Затемнение фона */
     z-index: 1;
 }
 
@@ -62,40 +63,55 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; }
     opacity: 0.95;
 }
 
-/* --- КНОПКА ЗАКАЗАТЬ (HERO) --- */
+/* Кнопка "Заказать" */
 .hero-btn {
     display: inline-block;
-    background-color: var(--accent-yellow); /* Желтый фон */
-    color: #000000; /* Черный текст */
+    background-color: var(--accent-yellow);
+    color: #000000;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 800; /* Жирный шрифт */
+    font-weight: 800;
     font-size: 1.2rem;
     text-transform: uppercase;
-    text-decoration: none; /* Убираем подчеркивание */
-    
-    padding: 18px 70px; /* Размер кнопки */
-    border-radius: 50px; /* Сильное закругление */
-    margin-top: 30px; /* Отступ от текста сверху */
-    
-    /* Эффект свечения (тень того же цвета, что и кнопка) */
+    text-decoration: none;
+    padding: 18px 50px;
+    border-radius: 50px;
+    margin-top: 30px;
     box-shadow: 0 0 20px rgba(255, 213, 79, 0.6);
-    
-    /* Плавная анимация */
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
 }
 
-/* Эффект при наведении */
 .hero-btn:hover {
-    transform: scale(1.05); /* Немного увеличивается */
-    background-color: var(--accent-hover); /* Чуть темнее желтый */
-    box-shadow: 0 0 30px rgba(255, 213, 79, 0.9); /* Свечение становится сильнее */
+    transform: scale(1.05);
+    background-color: var(--accent-hover);
+    box-shadow: 0 0 30px rgba(255, 213, 79, 0.9);
     cursor: pointer;
 }
 
-/* --- СЛАЙДЕР --- */
+/* --- 2. СЛАЙДЕР --- */
 .modules-section {
     padding: 60px 0;
     background-color: var(--bg-color);
+}
+
+/* Заголовок над слайдером */
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 0 15px;
+}
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--text-main);
+    text-transform: uppercase;
+}
+.section-header .subtitle {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #555;
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .swiper {
@@ -113,14 +129,12 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; }
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* --- НАСТРОЙКА ЗАТЕМНЕНИЯ БОКОВЫХ СЛАЙДОВ --- */
-/* Уменьшаем и делаем прозрачными слайды, которые не в центре */
+/* Затемнение и уменьшение боковых слайдов */
 .swiper-slide:not(.swiper-slide-active) {
-    opacity: 0.5;          /* <--- ПРОЗРАЧНОСТЬ (1 - видно полностью) */
-    transform: scale(0.7); /* <--- РАЗМЕР (1 - полный размер) */
+    opacity: 0.5;          
+    transform: scale(0.9); 
 }
 
-/* Активный слайд (по центру) */
 .swiper-slide-active {
     opacity: 1;
     transform: scale(1);
@@ -137,12 +151,11 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; }
     cursor: pointer;
 }
 
-/* Подлетание картинки при наведении */
 .swiper-slide img:hover {
     transform: translateY(-15px);
 }
 
-/* --- КНОПКИ --- */
+/* Кнопки навигации */
 .swiper-button-next, .swiper-button-prev {
     color: var(--text-main);
     background: var(--accent-yellow);
@@ -154,23 +167,105 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; }
     z-index: 20;
     transition: transform 0.2s;
 }
-
 .swiper-button-next:hover, .swiper-button-prev:hover {
     transform: scale(1.1);
     background: var(--accent-hover);
 }
-
 .swiper-button-next:after, .swiper-button-prev:after {
     font-size: 20px;
     font-weight: 800;
 }
-
 .swiper-pagination-bullet-active {
     background: var(--accent-yellow);
 }
 
+/* --- 3. БЛОК "О НАС" --- */
+.about-section {
+    background-color: var(--white);
+    padding: 40px 0;
+}
+
+.section-title-center {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    color: var(--text-main);
+}
+
+.about-grid {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-image-wrapper {
+    flex: 1;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.about-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+/* Класс для анимации пульсации */
+.about-img.switching {
+    transform: scale(1.05);
+}
+
+.about-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.about-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.about-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 192, 19, 0.4);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #b38f00;
+}
+.about-icon svg { width: 30px; height: 30px; }
+
+.about-text h3 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+.about-text p {
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #555;
+}
+
 /* --- АДАПТИВНОСТЬ --- */
+@media (max-width: 900px) {
+    .about-grid { flex-direction: column; }
+    .about-image-wrapper { width: 100%; margin-bottom: 20px; order: -1; }
+}
 @media (max-width: 768px) {
     .hero h1 { font-size: 2rem; }
     .hero p { font-size: 1rem; }
+    .section-header h2 { font-size: 1.8rem; }
+    .section-header .subtitle { font-size: 1rem; }
 }
