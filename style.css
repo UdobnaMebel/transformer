@@ -268,4 +268,6 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; }
     .hero p { font-size: 1rem; }
     .section-header h2 { font-size: 1.8rem; }
     .section-header .subtitle { font-size: 1rem; }
+    .about-text h3 { font-size: 1.2rem; }
+    .about-text p { font-size: 1rem; }
 }
