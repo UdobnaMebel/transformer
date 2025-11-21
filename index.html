@@ -47,7 +47,65 @@
         </div>
     </section>
 
-    <!-- 3. БЛОК "О НАС" -->
+    <!-- 3. ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ (НОВЫЙ БЛОК) -->
+    <section class="tech-section">
+        <div class="container">
+            
+            <!-- Общий заголовок блока -->
+            <h2 class="section-title-center">Безопасно для детей и кошек😸</h2>
+
+            <div class="tech-grid">
+                
+                <!-- ЛЕВАЯ КОЛОНКА: ВИДЕО -->
+                <div class="tech-video-wrapper">
+                    <!-- 
+                       autoplay - автозапуск
+                       loop - повтор по кругу
+                       muted - без звука (ОБЯЗАТЕЛЬНО для автозапуска)
+                       playsinline - чтобы на айфоне играло внутри сайта, а не на весь экран
+                    -->
+                    <!-- src оставили пустым, его заполнит JS -->
+                    <video src="" id="tech-video" autoplay loop muted playsinline class="tech-video"></video>
+                    <p class="video-caption">Механизм на газовых лифтах. Гарантия 10 лет</p>
+                </div>
+
+                <!-- ПРАВАЯ КОЛОНКА: ХАРАКТЕРИСТИКИ -->
+                <div class="tech-content">
+                    <h3>Надежно. Удобно. Стандарт.</h3>
+                    
+                    <ul class="tech-list">
+                        <li>
+                            <span class="check">📌</span>
+                            <p><strong>Ортопедическое основание</strong> на металлокаркасе: держит 400 кг.</p>
+                        </li>
+                        <li>
+                            <span class="check">📌</span>
+                            <p><strong>Защита от опрокидывания</strong>: крепим к стене анкерами.</p>
+                        </li>
+                        <li>
+                            <span class="check">📌</span>
+                            <p><strong>Ремни для белья</strong>: подушки и одеяло пристегиваются.</p>
+                        </li>
+                        <li>
+                            <span class="check">📌</span>
+                            <p>Материал: <strong>ЛДСП Kronospan</strong>, Диван – велюр.</p>
+                        </li>
+                        <li>
+                            <span class="check">📌</span>
+                            <p>Спальное место: <strong>160х200 см</strong> (полноценная кровать).</p>
+                        </li>
+                        <li>
+                            <span class="check">📌</span>
+                            <p><strong>Компактность</strong>: Глубина всего 44 см. Экономия 3м².</p>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. БЛОК "О НАС" -->
     <section class="about-section">
         <div class="container">
             <h2 class="section-title-center">Немного о нас</h2>
@@ -98,6 +156,43 @@
             </div>
         </div>
     </section>
+
+    <!-- ... (ПРЕДЫДУЩИЕ БЛОКИ) ... -->
+
+    <!-- 5. ЦВЕТА И МАТЕРИАЛЫ -->
+    <section class="colors-section">
+        <div class="container">
+            
+            <!-- Ряд 1: ЛДСП -->
+            <div class="colors-row">
+                <div class="colors-title-col">
+                    <h3>ЛДСП</h3>
+                </div>
+                <div class="colors-grid-col" id="ldsp-grid">
+                    <!-- Кружочки генерируются JS -->
+                </div>
+            </div>
+
+            <!-- Ряд 2: Велюр -->
+            <div class="colors-row">
+                <div class="colors-title-col">
+                    <h3>Велюр</h3>
+                </div>
+                <div class="colors-grid-col" id="velour-grid">
+                    <!-- Кружочки генерируются JS -->
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- МОДАЛЬНОЕ ОКНО (ЛАЙТБОКС) ДЛЯ ПРОСМОТРА ЦВЕТОВ -->
+    <!-- Оно скрыто по умолчанию -->
+    <div id="color-modal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modal-img">
+        <div id="modal-caption"></div>
+    </div>
 
     <!-- Скрипты (Порядок важен!) -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
