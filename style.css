@@ -368,6 +368,8 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; }
     background-color: var(--bg-color); /* Серый фон, как у слайдера */
     padding-top: 40px;
     padding-bottom: 40px;
+    /* Небольшая разделительная линия снизу, если следующий блок тоже белый */
+    border-bottom: 4px solid #00000010;
 }
 
 .colors-row {
@@ -513,7 +515,7 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; }
     font-size: 1.2rem;
 }
 
-/* --- АДАПТИВНОСТЬ ЦВЕТОВ --- */
+/* --- АДАПТИВНОСТЬ ЦВЕТОВ ДЛЯ 5 БЛОКА: ЦВЕТА И СТИЛИ --- */
 @media (max-width: 768px) {
     .colors-row {
         flex-direction: column; /* Друг под другом */
@@ -538,6 +540,151 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; }
     .color-circle {
         width: 100px;
         height: 100px;
+    }
+}
+
+/* --- БЛОК 6: ДОСТАВКА И СБОРКА --- */
+.delivery-section {
+    background-color: var(--bg-color); /* 1. Сделали фон секции серым */
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.timeline-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Карточки будут одинаковой высоты */
+    gap: 30px; /* Увеличили расстояние между карточками */
+    margin-top: 50px;
+}
+
+/* Карточка (Шейп) */
+.timeline-step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 350px;
+    
+    /* 2. Оформление карточки */
+    background-color: var(--white); /* Белый фон */
+    border-radius: 25px;            /* Сильное закругление */
+    padding: 40px 25px;             /* Внутренние отступы (воздух) */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Мягкая тень */
+    
+    /* Анимация при наведении */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-step:hover {
+    transform: translateY(-10px); /* Карточка всплывает */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+/* Иконки */
+.step-icon {
+    width: 90px;  /* Чуть больше */
+    height: 90px;
+    background-color: #f9f9f9; 
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.step-icon svg {
+    width: 45px;
+    height: 45px;
+    color: #333;
+}
+
+/* 3. Увеличение шрифтов */
+
+.timeline-step h3 {
+    font-size: 1.6rem; /* Заголовок (Привезем) крупнее */
+    margin-bottom: 20px;
+    color: var(--text-main);
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.timeline-step p {
+    margin-bottom: 15px;
+    font-size: 1.2rem; /* Текст крупнее */
+    color: #444;
+    line-height: 1.4;
+}
+
+/* Маленький текст (про этажи) тоже увеличили */
+.small-text {
+    font-size: 1.05rem !important;
+    margin-top: 8px;
+    color: #666;
+}
+
+/* Ценники */
+.price-tag {
+    display: inline-block;
+    background-color: var(--accent-yellow);
+    color: #000;
+    font-weight: 800;
+    padding: 5px 12px; /* Ценник жирнее */
+    border-radius: 6px;
+    font-size: 1.4rem; /* Цена крупная */
+    margin-left: 5px;
+}
+
+.price-tag-small {
+    background-color: rgba(255, 213, 79, 0.5);
+    color: #000;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+/* Стрелка между блоками */
+.timeline-arrow {
+    font-size: 2.5rem;
+    color: #333333; 
+    font-weight: 800;
+    align-self: center; /* Центрируем стрелку по высоте карточки */
+}
+
+/* --- АДАПТИВНОСТЬ ДОСТАВКИ --- */
+@media (max-width: 900px) {
+    .timeline-step {
+        padding: 20px 25px;     /* Внутренние отступы (воздух) */
+    }
+
+    .timeline-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .timeline-arrow {
+        transform: rotate(90deg);
+        margin: 0;
+    }
+
+    .step-icon {
+        margin-bottom: 5px;
+    }
+    
+    .timeline-step {
+        width: 100%;
+        max-width: 100%; /* На мобильном карточка на всю ширину */
+    }
+
+    .price-tag {
+        font-size: 1.9rem; /* Цена крупная */
+    }
+
+    .price-tag-small {
+        font-size: 1.3rem;
     }
 }
 
