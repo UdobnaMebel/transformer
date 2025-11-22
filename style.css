@@ -405,10 +405,10 @@ strong, b { font-weight: 800 !important; color: #111111; }
 
 /* Цвета градиентов */
 .btn-wa {
-    background: linear-gradient(45deg, #25D366, #128C7E);
+    background: linear-gradient(45deg, #38d450, #1ec036);
 }
 .btn-tg {
-    background: linear-gradient(45deg, #0088cc, #005f8f);
+    background: linear-gradient(45deg, #27A7E7, #0985c4);
 }
 .btn-yt {
     width: 100%; /* Ютуб на всю ширину */
@@ -515,6 +515,93 @@ strong, b { font-weight: 800 !important; color: #111111; }
     right: 20px;
 }
 
+/* =========================================
+   10. БЛОК 8: FAQ
+   ========================================= */
+.faq-section {
+    background-color: #1e1e1e; /* Темный фон */
+    padding: 60px 0 80px 0;
+    color: #ccc; /* Серый текст */
+}
+
+.faq-main-title {
+    text-align: center;
+    font-size: 1.2rem; /* Небольшой шрифт */
+    font-weight: 600;
+    color: #888; /* Приглушенный цвет заголовка */
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.faq-wrapper {
+    max-width: 800px; /* Узкая колонка для удобства чтения */
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid #333; /* Тонкий разделитель */
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+/* Заголовок вопроса (Кнопка) */
+.faq-question {
+    display: flex;
+    align-items: center;
+    padding: 25px 0;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.faq-question span {
+    font-size: 1.1rem;
+    font-weight: 700; /* Жирный вопрос */
+    color: #eee; /* Почти белый */
+}
+
+.faq-question:hover span {
+    color: var(--accent-yellow); /* При наведении желтеет */
+}
+
+/* Иконка стрелочки */
+.faq-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--accent-yellow); /* Желтая стрелка */
+    transition: transform 0.3s ease; /* Плавный поворот */
+}
+.faq-icon svg { width: 24px; height: 24px; }
+
+/* Ответ (скрыт по умолчанию) */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out; /* Плавное выезжание */
+}
+
+.faq-answer p {
+    padding-bottom: 25px;
+    padding-left: 45px; /* Отступ, чтобы текст был под вопросом, а не под стрелкой */
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #aaa; /* Светло-серый, не бьет в глаза */
+}
+
+/* --- АКТИВНЫЙ КЛАСС (JS добавляет его при клике) --- */
+.faq-question.active .faq-icon {
+    transform: rotate(180deg); /* Стрелка переворачивается */
+}
+.faq-question.active span {
+    color: var(--accent-yellow);
+}
+
 
 
 /* ===========================================================
@@ -611,6 +698,13 @@ strong, b { font-weight: 800 !important; color: #111111; }
     }
 
     .phone-link {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
+    }
+
+    /* FAQ Mobile */
+    .faq-question { padding: 20px 0; }
+    .faq-question span { font-size: 1rem; }
+    .faq-answer p { 
+        padding-bottom: 20px;
     }
 }

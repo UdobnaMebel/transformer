@@ -54,6 +54,6 @@ const linkWhatsAppPath = "files/links/WhatsApp.txt";
 const linkTelegramPath = "files/links/telegram.txt";
 const linkYoutubePath = "files/links/youtube.txt";
 
-// Настройки Телеграм-бота
-const botTokenPath = "files/links/bot_token.txt";
-const myIdPath = "files/links/my_id.txt";
+// Станет (вставьте свои цифры):
+const telegramBotToken = "7558283184:AAHm6tbplgZNX0MgYi3ZC_aSF-dzc9jJndg"; 
+const telegramChatId = "1584547360";

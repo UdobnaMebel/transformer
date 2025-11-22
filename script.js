@@ -257,53 +257,86 @@ document.addEventListener('DOMContentLoaded', () => {
     // ЛОГИКА ОТПРАВКИ
     if (orderForm) {
         orderForm.addEventListener('submit', async function(e) {
-            e.preventDefault(); // Останавливаем стандартную перезагрузку страницы
-
+            e.preventDefault(); 
             const name = document.getElementById('input-name').value;
             const phone = document.getElementById('input-phone').value;
             const btn = document.querySelector('.submit-btn');
-
-            // Визуальная обратная связь: кнопка меняет текст и блокируется
             const originalText = btn.innerText;
+            
             btn.innerText = "Отправка...";
             btn.disabled = true;
 
             try {
-                // 1. Читаем Токен и ID из файлов
-                const tokenResponse = await fetch(botTokenPath);
-                if (!tokenResponse.ok) throw new Error("Не найден файл токена");
-                const token = (await tokenResponse.text()).trim();
-                
-                const idResponse = await fetch(myIdPath);
-                if (!idResponse.ok) throw new Error("Не найден файл ID");
-                const chatId = (await idResponse.text()).trim();
+                // Берем данные сразу из переменных, без fetch
+                if (!telegramBotToken || !telegramChatId) {
+                    throw new Error("Токен не настроен в config.js");
+                }
 
-                // 2. Формируем красивое сообщение (HTML разметка)
-                // %0A - это перенос строки в URL
-                const message = `🔥 <b>НОВАЯ ЗАЯВКА ШКАФ_КРОВАТЬ</b> 🔥%0A%0A👤 <b>Имя:</b> ${name}%0A📱 <b>Телефон:</b> ${phone}`;
-
-                // 3. Отправляем запрос к Telegram API
-                const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${message}&parse_mode=html`;
+                const message = `🔥 <b>НОВАЯ ЗАЯВКА</b> 🔥%0A%0A👤 <b>Имя:</b> ${name}%0A📱 <b>Телефон:</b> ${phone}`;
+                const url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${telegramChatId}&text=${message}&parse_mode=html`;
 
                 const sendResponse = await fetch(url);
 
                 if (sendResponse.ok) {
                     alert("Спасибо! Ваша заявка успешно отправлена.");
-                    orderForm.reset(); // Очищаем поля формы
-                    closeForm(); // Закрываем окно
+                    orderForm.reset(); 
+                    closeForm(); 
                 } else {
-                    alert("Ошибка отправки. Попробуйте связаться с нами через WhatsApp.");
+                    alert("Ошибка отправки.");
                 }
-
             } catch (error) {
                 console.error("Ошибка:", error);
-                alert("Произошла ошибка при отправке (не удалось прочитать настройки бота).");
+                alert("Ошибка отправки заявки.");
             } finally {
-                // Возвращаем кнопку в исходное состояние в любом случае
                 btn.innerText = originalText;
                 btn.disabled = false;
             }
         });
     }
+
+    /* --- 10. АККОРДЕОН FAQ --- */
+    
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const answer = question.nextElementSibling;
+            const isActive = question.classList.contains('active');
+
+            // 1. Закрываем все остальные (Опционально)
+            // Если хотите, чтобы открывалось много сразу - удалите этот блок
+            document.querySelectorAll('.faq-question').forEach(item => {
+                item.classList.remove('active');
+                item.nextElementSibling.style.maxHeight = null;
+            });
+
+            // 2. Если нажатый не был открыт - открываем его
+            if (!isActive) {
+                question.classList.add('active');
+                // scrollHeight - это реальная высота спрятанного контента
+                answer.style.maxHeight = answer.scrollHeight + "px";
+            } 
+            // Если был открыт - он закроется (так как мы выше закрыли все)
+        });
+    });
+
+    /* --- 11. ВАУ-ЭФФЕКТЫ (ВИБРАЦИЯ) --- */
+    
+    // Функция вибрации (если поддерживается устройством)
+    function triggerHaptic(duration = 10) {
+        // Проверяем, есть ли API (обычно Android)
+        if (navigator.vibrate) {
+            navigator.vibrate(duration); // Вибрация в миллисекундах
+        }
+    }
+
+    // Находим все кнопки, на которые хотим добавить эффект
+    const hapticButtons = document.querySelectorAll('.hero-btn, .request-btn, .social-btn, .color-circle, .modal-close, .faq-question');
+
+    hapticButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            triggerHaptic(15); // Очень короткий "тык" (15мс)
+        });
+    });
 
 });
