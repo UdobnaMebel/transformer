@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const img = document.createElement('img');
             img.src = `files/${fileName}`;
             img.alt = "Модуль Udobna";
+
+            img.loading = "lazy"; 
             
             slideDiv.appendChild(img);
             wrapper.appendChild(slideDiv);
@@ -111,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
             img.src = `files/colors/${item.file}`; 
             img.alt = item.name;
             img.className = 'color-circle';
+            img.loading = "lazy"; 
             
             // Подпись названия
             const name = document.createElement('p');
@@ -196,6 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const waBtn = document.getElementById('btn-whatsapp');
     const tgBtn = document.getElementById('btn-telegram');
     const ytBtn = document.getElementById('btn-youtube');
+    const stickyWaBtn = document.getElementById('sticky-whatsapp'); 
 
     if (waBtn && typeof linkWhatsApp !== 'undefined') {
         waBtn.href = linkWhatsApp;
@@ -207,6 +211,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (ytBtn && typeof linkYoutube !== 'undefined') {
         ytBtn.href = linkYoutube;
+    }
+
+    if (stickyWaBtn && typeof linkWhatsApp !== 'undefined') {
+        stickyWaBtn.href = linkWhatsApp;
     }
 
     /* --- 9. ФОРМА ЗАЯВКИ И ОТПРАВКА В TELEGRAM --- */

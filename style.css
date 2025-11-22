@@ -606,6 +606,11 @@ strong, b { font-weight: 800 !important; color: #111111; }
     color: var(--accent-yellow);
 }
 
+/* По умолчанию скрываем липкую кнопку (для ПК) */
+.sticky-wa-btn {
+    display: none;
+}
+
 
 
 /* ===========================================================
@@ -710,5 +715,47 @@ strong, b { font-weight: 800 !important; color: #111111; }
     .faq-question span { font-size: 1rem; }
     .faq-answer p { 
         padding-bottom: 20px;
+    }
+
+    /* --- ЛИПКАЯ КНОПКА WHATSAPP --- */
+    .sticky-wa-btn {
+        display: flex; /* Включаем отображение */
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        
+        position: fixed; /* Фиксируем на экране */
+        bottom: 20px;    /* Отступ снизу */
+        left: 50%;       /* Центруем по горизонтали */
+        transform: translateX(-50%); /* Корректировка центровки */
+        
+        width: 90%;      /* Ширина почти во весь экран */
+        max-width: 400px;
+        padding: 15px 20px;
+        
+        background: linear-gradient(45deg, #25D366, #128C7E); /* Цвета WhatsApp */
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        border-radius: 50px; /* Закругленные края (пилюля) */
+        
+        box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+        z-index: 990; /* Поверх всего, но под модалкой (у модалки 1000) */
+        
+        /* Анимация появления */
+        animation: slideUp 0.5s ease-out forwards;
+    }
+
+    .sticky-wa-btn svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Анимация выезда снизу */
+    @keyframes slideUp {
+        from { transform: translate(-50%, 100px); opacity: 0; }
+        to { transform: translate(-50%, 0); opacity: 1; }
     }
 }
