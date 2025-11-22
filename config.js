@@ -46,3 +46,14 @@ const velourColors = [
     { name: "Серый", file: "velour gray.png" },
     { name: "Синий", file: "velour blue.png" }
 ];
+
+
+/* --- 7. КОНТАКТЫ И ССЫЛКИ --- */
+// Пути к текстовым файлам, где лежат ссылки и токены
+const linkWhatsAppPath = "files/links/WhatsApp.txt";
+const linkTelegramPath = "files/links/telegram.txt";
+const linkYoutubePath = "files/links/youtube.txt";
+
+// Настройки Телеграм-бота
+const botTokenPath = "files/links/bot_token.txt";
+const myIdPath = "files/links/my_id.txt";

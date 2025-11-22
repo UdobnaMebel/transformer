@@ -239,6 +239,62 @@
         </div>
     </section>
 
+    <!-- ... (БЛОК ДОСТАВКИ) ... -->
+
+    <!-- 7. КОНТАКТЫ -->
+    <section class="contacts-section">
+        <div class="container">
+            <h2 class="section-title-center">Мы на связи!</h2>
+            
+            <div class="contacts-wrapper">
+                
+                <!-- 1. Номер телефона (просто текст-ссылка) -->
+                <a href="tel:+79885155515" class="phone-link">+7 988 515-55-15</a>
+
+                <!-- 2. Сетка соцсетей -->
+                <div class="social-grid">
+                    <!-- Ссылки подставятся скриптом из файлов -->
+                    <a href="#" id="btn-whatsapp" class="social-btn btn-wa" target="_blank">
+                        Написать в WhatsApp
+                    </a>
+                    <a href="#" id="btn-telegram" class="social-btn btn-tg" target="_blank">
+                        Написать в Telegram
+                    </a>
+                </div>
+
+                <!-- 3. YouTube (отдельной строкой) -->
+                <a href="#" id="btn-youtube" class="social-btn btn-yt" target="_blank">
+                    Наш YouTube канал
+                </a>
+
+                <!-- 4. Кнопка "Оставить заявку" -->
+                <button id="open-form-btn" class="request-btn">
+                    Оставить заявку
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- МОДАЛЬНОЕ ОКНО ЗАЯВКИ (ФОРМА) -->
+    <div id="form-modal" class="modal form-modal-overlay">
+        <div class="form-modal-content">
+            <span class="modal-close form-close">&times;</span>
+            
+            <h3>Оставить заявку</h3>
+            <p>Заполните форму, и мы свяжемся с вами в ближайшее время</p>
+            
+            <form id="order-form">
+                <input type="text" id="input-name" placeholder="Ваше имя" required>
+                <input type="tel" id="input-phone" placeholder="Ваш номер телефона" required>
+                <button type="submit" class="submit-btn">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО ДЛЯ ФОТО (оставляем старое ниже) -->
+    <!-- ... -->
+
     <!-- МОДАЛЬНОЕ ОКНО (ЛАЙТБОКС) ДЛЯ ПРОСМОТРА ЦВЕТОВ -->
     <!-- Оно скрыто по умолчанию -->
     <div id="color-modal" class="modal">

@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* --- 1. НАСТРОЙКА ОБЛОЖКИ (HERO) --- */
     const heroSection = document.getElementById('hero-section');
     if (heroSection && typeof heroCover !== 'undefined' && heroCover) {
-        heroSection.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/${heroCover}')`;
+        heroSection.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('files/${heroCover}')`;
     }
 
     /* --- 2. ГЕНЕРАЦИЯ СЛАЙДОВ (МОДУЛИ) --- */
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
             slideDiv.className = 'swiper-slide';
             
             const img = document.createElement('img');
-            img.src = `images/${fileName}`;
+            img.src = `files/${fileName}`;
             img.alt = "Модуль Udobna";
             
             slideDiv.appendChild(img);
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Загрузка первой картинки
     if (aboutImgElement && typeof aboutImage1 !== 'undefined') {
-        aboutImgElement.src = `images/${aboutImage1}`;
+        aboutImgElement.src = `files/${aboutImage1}`;
     }
 
     // Клик по картинке (анимация смены)
@@ -75,9 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // Смена фото в момент пика (через 300мс)
             setTimeout(() => {
                 if (this.src.includes(aboutImage1)) {
-                    this.src = `images/${aboutImage2}`;
+                    this.src = `files/${aboutImage2}`;
                 } else {
-                    this.src = `images/${aboutImage1}`;
+                    this.src = `files/${aboutImage1}`;
                 }
 
                 // Уменьшение обратно
@@ -90,10 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const videoElement = document.getElementById('tech-video');
     
     if (videoElement && typeof mechanismVideo !== 'undefined') {
-        videoElement.src = `images/${mechanismVideo}`;
+        videoElement.src = `files/${mechanismVideo}`;
     }
 
-    /* --- 6. ГЕНЕРАЦИЯ ЦВЕТОВ И МАТЕРИАЛОВ (НОВОЕ) --- */
+    /* --- 6. ГЕНЕРАЦИЯ ЦВЕТОВ И МАТЕРИАЛОВ --- */
     
     function generateColors(containerId, dataArray) {
         const container = document.getElementById(containerId);
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Картинка (кружочек)
             const img = document.createElement('img');
             // Важно: берем из папки colors/
-            img.src = `images/colors/${item.file}`; 
+            img.src = `files/colors/${item.file}`; 
             img.alt = item.name;
             img.className = 'color-circle';
             
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Событие клика для открытия модального окна
             img.addEventListener('click', () => {
-                openModal(`images/colors/${item.file}`, item.name);
+                openModal(`files/colors/${item.file}`, item.name);
             });
 
             // Собираем всё вместе
@@ -138,15 +138,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    /* --- 7. ЛОГИКА МОДАЛЬНОГО ОКНА (НОВОЕ) --- */
+    /* --- 7. ЛОГИКА МОДАЛЬНОГО ОКНА ДЛЯ ФОТО (ЛАЙТБОКС) --- */
     
     const modal = document.getElementById('color-modal');
     const modalImg = document.getElementById('modal-img');
     const captionText = document.getElementById('modal-caption');
-    // Ищем кнопку закрытия по классу
+    // Ищем кнопку закрытия по классу (первую найденную)
     const spanClose = document.querySelector('.modal-close');
 
-    // Функция открытия
+    // Функция открытия фото
     function openModal(src, text) {
         if (!modal) return;
         
@@ -157,11 +157,11 @@ document.addEventListener('DOMContentLoaded', () => {
         modalImg.src = src;
         captionText.innerText = text;
         
-        // Блокируем прокрутку страницы, пока открыто фото
+        // Блокируем прокрутку страницы
         document.body.style.overflow = "hidden"; 
     }
 
-    // Функция закрытия
+    // Функция закрытия фото
     function closeModal() {
         if (!modal) return;
 
@@ -173,20 +173,137 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     }
 
-    // Закрытие по клику на крестик
+    // Закрытие фото по клику на крестик
     if (spanClose) {
         spanClose.onclick = function() { 
             closeModal();
         }
     }
 
-    // Закрытие по клику на темный фон вокруг картинки
+    // Закрытие фото по клику на темный фон
     if (modal) {
         modal.onclick = function(event) {
             if (event.target === modal) {
                 closeModal();
             }
         }
+    }
+
+
+    /* --- 8. ЗАГРУЗКА ССЫЛОК ИЗ ФАЙЛОВ --- */
+    
+    // Функция для чтения текста из файла и вставки в href
+    function fetchAndSetLink(filePath, elementId) {
+        fetch(filePath)
+            .then(response => {
+                if (!response.ok) throw new Error("Файл не найден");
+                return response.text();
+            })
+            .then(text => {
+                const element = document.getElementById(elementId);
+                if (element) {
+                    element.href = text.trim(); // .trim() убирает лишние пробелы и переносы строк
+                }
+            })
+            .catch(err => console.log("Ошибка загрузки ссылки:", filePath));
+    }
+
+    // Загружаем ссылки, если пути указаны в config.js
+    if (typeof linkWhatsAppPath !== 'undefined') fetchAndSetLink(linkWhatsAppPath, 'btn-whatsapp');
+    if (typeof linkTelegramPath !== 'undefined') fetchAndSetLink(linkTelegramPath, 'btn-telegram');
+    if (typeof linkYoutubePath !== 'undefined') fetchAndSetLink(linkYoutubePath, 'btn-youtube');
+
+
+    /* --- 9. ФОРМА ЗАЯВКИ И ОТПРАВКА В TELEGRAM --- */
+    
+    const formModal = document.getElementById('form-modal');
+    const openFormBtn = document.getElementById('open-form-btn');
+    const formCloseBtn = document.querySelector('.form-close'); // Вторая кнопка закрытия (для формы)
+    const orderForm = document.getElementById('order-form');
+
+    // Функция открытия формы
+    if (openFormBtn) {
+        openFormBtn.addEventListener('click', () => {
+            if (formModal) {
+                formModal.style.display = "flex";
+                setTimeout(() => { formModal.classList.add('show'); }, 10);
+                document.body.style.overflow = "hidden";
+            }
+        });
+    }
+
+    // Функция закрытия формы
+    function closeForm() {
+        if (!formModal) return;
+        formModal.classList.remove('show');
+        setTimeout(() => { 
+            formModal.style.display = "none"; 
+            document.body.style.overflow = "auto"; 
+        }, 300);
+    }
+
+    // Закрытие по крестику
+    if (formCloseBtn) {
+        formCloseBtn.onclick = closeForm;
+    }
+    
+    // Закрытие по клику на фон (если клик не по форме)
+    window.addEventListener('click', (e) => {
+        if (e.target === formModal) {
+            closeForm();
+        }
+    });
+
+    // ЛОГИКА ОТПРАВКИ
+    if (orderForm) {
+        orderForm.addEventListener('submit', async function(e) {
+            e.preventDefault(); // Останавливаем стандартную перезагрузку страницы
+
+            const name = document.getElementById('input-name').value;
+            const phone = document.getElementById('input-phone').value;
+            const btn = document.querySelector('.submit-btn');
+
+            // Визуальная обратная связь: кнопка меняет текст и блокируется
+            const originalText = btn.innerText;
+            btn.innerText = "Отправка...";
+            btn.disabled = true;
+
+            try {
+                // 1. Читаем Токен и ID из файлов
+                const tokenResponse = await fetch(botTokenPath);
+                if (!tokenResponse.ok) throw new Error("Не найден файл токена");
+                const token = (await tokenResponse.text()).trim();
+                
+                const idResponse = await fetch(myIdPath);
+                if (!idResponse.ok) throw new Error("Не найден файл ID");
+                const chatId = (await idResponse.text()).trim();
+
+                // 2. Формируем красивое сообщение (HTML разметка)
+                // %0A - это перенос строки в URL
+                const message = `🔥 <b>НОВАЯ ЗАЯВКА ШКАФ_КРОВАТЬ</b> 🔥%0A%0A👤 <b>Имя:</b> ${name}%0A📱 <b>Телефон:</b> ${phone}`;
+
+                // 3. Отправляем запрос к Telegram API
+                const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${message}&parse_mode=html`;
+
+                const sendResponse = await fetch(url);
+
+                if (sendResponse.ok) {
+                    alert("Спасибо! Ваша заявка успешно отправлена.");
+                    orderForm.reset(); // Очищаем поля формы
+                    closeForm(); // Закрываем окно
+                } else {
+                    alert("Ошибка отправки. Попробуйте связаться с нами через WhatsApp.");
+                }
+
+            } catch (error) {
+                console.error("Ошибка:", error);
+                alert("Произошла ошибка при отправке (не удалось прочитать настройки бота).");
+            } finally {
+                // Возвращаем кнопку в исходное состояние в любом случае
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }
+        });
     }
 
 });

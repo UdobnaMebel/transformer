@@ -144,7 +144,7 @@ strong, b { font-weight: 800 !important; color: #111111; }
     content: '';
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.3);
     z-index: 1;
 }
 .hero-content { position: relative; z-index: 2; }
@@ -343,6 +343,179 @@ strong, b { font-weight: 800 !important; color: #111111; }
     font-weight: 800; align-self: center;
 }
 
+/* =========================================
+   БЛОК 7: КОНТАКТЫ
+   ========================================= */
+.contacts-section {
+    background-color: var(--white);
+    padding-top: 60px;
+    padding-bottom: 80px;
+}
+
+.contacts-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    max-width: 600px; /* Ограничиваем ширину, чтобы на ПК не было слишком широко */
+    margin: 0 auto;
+}
+
+/* Номер телефона */
+.phone-link {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-main);
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+}
+.phone-link:hover {
+    color: var(--accent-hover);
+}
+
+/* Сетка кнопок */
+.social-grid {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+
+/* Общий стиль кнопок соцсетей */
+.social-btn {
+    flex: 1; /* Растягиваются равномерно */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.social-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* Цвета градиентов */
+.btn-wa {
+    background: linear-gradient(45deg, #25D366, #128C7E);
+}
+.btn-tg {
+    background: linear-gradient(45deg, #0088cc, #005f8f);
+}
+.btn-yt {
+    width: 100%; /* Ютуб на всю ширину */
+    background: linear-gradient(45deg, #FF0000, #C4302B);
+}
+
+/* Кнопка заявки */
+.request-btn {
+    width: 100%;
+    padding: 20px;
+    background-color: var(--accent-yellow);
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255, 213, 79, 0.4);
+    margin-top: 10px;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.request-btn:hover {
+    background-color: var(--accent-hover);
+    transform: scale(1.02);
+}
+
+/* =========================================
+   9. МОДАЛЬНОЕ ОКНО ФОРМЫ (ЗАЯВКА)
+   ========================================= */
+/* Используем те же классы .modal, но добавляем специфику для формы */
+.form-modal-content {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    /* Анимация появления */
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+/* Когда модалка активна, контент всплывает */
+.modal.show .form-modal-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.form-modal-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+
+.form-modal-content p {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1rem;
+}
+
+/* Поля ввода */
+.form-modal-content input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-family: 'Open Sans', sans-serif;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.form-modal-content input:focus {
+    border-color: var(--accent-yellow);
+}
+
+/* Кнопка отправки */
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--accent-yellow);
+    color: #000;
+    font-weight: 800;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-transform: uppercase;
+}
+.submit-btn:hover { background-color: var(--accent-hover); }
+
+/* Крестик формы */
+.form-close {
+    color: #333;
+    top: 15px;
+    right: 20px;
+}
+
+
 
 /* ===========================================================
    5. ЦЕНТРАЛИЗОВАННАЯ МОБИЛЬНАЯ ВЕРСИЯ (ВСЕ НАСТРОЙКИ ТУТ)
@@ -420,4 +593,24 @@ strong, b { font-weight: 800 !important; color: #111111; }
     .colors-grid-col { width: 100%; justify-content: flex-start; gap: 30px; }
     .color-item { width: 80px; }
     .color-circle { width: 100px; height: 100px; }
+
+    /* КОНТАКТЫ */
+    .social-grid {
+        flex-direction: column; /* Кнопки друг под другом */
+    }
+    
+    .social-btn {
+        width: 80%; /* Ширина 80% */
+        margin: 0 auto; /* По центру */
+    }
+    
+    .btn-yt, .request-btn {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .phone-link {
+        font-size: 1.5rem;
+    }
 }
