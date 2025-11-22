@@ -209,12 +209,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ytBtn.href = linkYoutube;
     }
 
-    // Загружаем ссылки, если пути указаны в config.js
-    if (typeof linkWhatsAppPath !== 'undefined') fetchAndSetLink(linkWhatsAppPath, 'btn-whatsapp');
-    if (typeof linkTelegramPath !== 'undefined') fetchAndSetLink(linkTelegramPath, 'btn-telegram');
-    if (typeof linkYoutubePath !== 'undefined') fetchAndSetLink(linkYoutubePath, 'btn-youtube');
-
-
     /* --- 9. ФОРМА ЗАЯВКИ И ОТПРАВКА В TELEGRAM --- */
     
     const formModal = document.getElementById('form-modal');
