@@ -192,20 +192,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* --- 8. ЗАГРУЗКА ССЫЛОК ИЗ ФАЙЛОВ --- */
     
-    // Функция для чтения текста из файла и вставки в href
-    function fetchAndSetLink(filePath, elementId) {
-        fetch(filePath)
-            .then(response => {
-                if (!response.ok) throw new Error("Файл не найден");
-                return response.text();
-            })
-            .then(text => {
-                const element = document.getElementById(elementId);
-                if (element) {
-                    element.href = text.trim(); // .trim() убирает лишние пробелы и переносы строк
-                }
-            })
-            .catch(err => console.log("Ошибка загрузки ссылки:", filePath));
+    // Просто берем ссылки из config.js и вставляем в кнопки
+    const waBtn = document.getElementById('btn-whatsapp');
+    const tgBtn = document.getElementById('btn-telegram');
+    const ytBtn = document.getElementById('btn-youtube');
+
+    if (waBtn && typeof linkWhatsApp !== 'undefined') {
+        waBtn.href = linkWhatsApp;
+    }
+
+    if (tgBtn && typeof linkTelegram !== 'undefined') {
+        tgBtn.href = linkTelegram;
+    }
+
+    if (ytBtn && typeof linkYoutube !== 'undefined') {
+        ytBtn.href = linkYoutube;
     }
 
     // Загружаем ссылки, если пути указаны в config.js
