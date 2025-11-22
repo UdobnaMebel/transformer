@@ -49,10 +49,10 @@ const velourColors = [
 
 
 /* --- 7. КОНТАКТЫ И ССЫЛКИ --- */
-// Пути к текстовым файлам, где лежат ссылки и токены
-const linkWhatsAppPath = "files/links/WhatsApp.txt";
-const linkTelegramPath = "files/links/telegram.txt";
-const linkYoutubePath = "files/links/youtube.txt";
+// Прямые ссылки (Так надежнее, чем через файлы)
+const linkWhatsApp = "https://wa.me/79885155515"; 
+const linkTelegram = "https://t.me/Udobna_Chat"; // Например: https://t.me/udobna_mebel
+const linkYoutube = "https://www.youtube.com/@UdobnaMebel";
 
 // Станет (вставьте свои цифры):
 const telegramBotToken = "7558283184:AAHm6tbplgZNX0MgYi3ZC_aSF-dzc9jJndg"; 

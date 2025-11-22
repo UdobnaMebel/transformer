@@ -335,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     hapticButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            triggerHaptic(15); // Очень короткий "тык" (15мс)
+            triggerHaptic(300); // Очень короткий "тык" (15мс)
         });
     });
 
