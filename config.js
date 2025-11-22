@@ -50,7 +50,7 @@ const velourColors = [
 
 /* --- 7. КОНТАКТЫ И ССЫЛКИ --- */
 // Пути к текстовым файлам, где лежат ссылки и токены
-const linkWhatsAppPath = "files/links/WhatsApp.txt";
+const linkWhatsAppPath = "files/links/whatsApp.txt";
 const linkTelegramPath = "files/links/telegram.txt";
 const linkYoutubePath = "files/links/youtube.txt";
 
