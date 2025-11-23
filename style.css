@@ -34,7 +34,7 @@ h1, h2, h3 {
     letter-spacing: 0.03em; /* Добавил "воздух" для премиальности */
 }
 
-strong, b { font-weight: 800 !important; color: #111111; }
+strong, b { font-weight: 800 !important; color: #222222; }
 
 /* --- ГЛАВНЫЕ ЗАГОЛОВКИ СЕКЦИЙ --- */
 .section-header h2,
