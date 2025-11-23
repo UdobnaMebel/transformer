@@ -204,6 +204,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     if (window.navigator && window.navigator.vibrate) window.navigator.vibrate([100, 50, 100]); 
 
+                    // --- ДОБАВЛЯЕМ МЕТРИКУ СЮДА ---
+                    // Замени XXXXXX на номер твоего счетчика (он есть в коде метрики)
+                    if (typeof ym === 'function') {
+                        ym(105468466, 'reachGoal', 'lead_sent'); 
+                    }
+
                     alert("Спасибо! Ваша заявка успешно отправлена.");
                     orderForm.reset(); 
                     closeForm(); 
