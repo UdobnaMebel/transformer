@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://udobnamebel.github.io/transformer/sitemap.xml
-Host: https://udobnamebel.github.io/transformer/
+Host: https://udobna-transformer.ru
+Sitemap: https://udobna-transformer.ru/sitemap.xml
