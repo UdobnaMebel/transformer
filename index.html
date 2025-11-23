@@ -3,23 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кровати-трансформеры Udobna | Ростов-на-Дону</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-
-    <meta property="og:title" content="Шкаф-кровать Udobna | Ростов-на-Дону">
-    <meta property="og:description" content="Экономия 3 кв.м. в квартире. Цены от производителя.">
-    <meta property="og:image" content="files/link_cover.png">
     
-    <!-- Шрифты (Включая жирный 800) -->
+    <!-- === 1. SEO (Для поиска) === -->
+    <title>Шкаф-кровать трансформер в Ростове-на-Дону | Купить от производителя Udobna</title>
+    <meta name="description" content="Изготовление шкаф-кроватей трансформеров в Ростове-на-Дону. Цены от производителя, без посредников. Экономия места до 3 кв.м. Гарантия 10 лет на механизм.">
+    <meta name="keywords" content="шкаф кровать, шкаф кровать трансформер, кровать трансформер, мебель трансформер, купить шкаф кровать ростов, откидная кровать, мебель на заказ ростов, udobna">
+    
+    <!-- === 2. ГЕО-ПРИВЯЗКА (Для карт) === -->
+    <meta name="geo.region" content="RU-ROS" />
+    <meta name="geo.placename" content="Ростов-на-Дону" />
+    <meta name="geo.position" content="47.2357;39.7015" />
+    <meta name="ICBM" content="47.2357, 39.7015" />
+
+    <!-- === 3. СОЦСЕТИ (Красивая ссылка в WhatsApp) === -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Udobna Mebel">
+    <meta property="og:title" content="Шкаф-кровать трансформер | Экономия места в квартире">
+    <meta property="og:description" content="Честные цены от производителя в Ростове. Жми, чтобы посмотреть каталог и цены!">
+    <meta property="og:url" content="https://udobnamebel.github.io/transformer/">
+    <meta property="og:image" content="files/link_cover.png"> 
+    <meta property="og:locale" content="ru_RU">
+
+    <!-- === 4. ИКОНКА (Favicon) === -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- === 5. ШРИФТЫ (ОБЯЗАТЕЛЬНО) === -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     
-    <!-- Стили Swiper -->
+    <!-- === 6. СТИЛИ (ВОТ ЭТО ВЕРНУЛО ДИЗАЙН) === -->
+    <!-- Слайдер -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    
-    <!-- Наши стили -->
+    <!-- Ваш файл стилей -->
     <link rel="stylesheet" href="style.css"> 
+    
 </head>
 <body>
 
@@ -415,6 +433,51 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="config.js"></script>
     <script src="script.js"></script>
+
+    <!-- МИКРОРАЗМЕТКА (SCHEMA.ORG) ДЛЯ ПОИСКОВИКОВ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FurnitureStore",
+      "name": "Udobna - Кровати-трансформеры",
+      "image": "https://udobnamebel.github.io/transformer/files/cover.jpg",
+      "@id": "https://udobnamebel.github.io/transformer/",
+      "url": "https://udobnamebel.github.io/transformer/",
+      "telephone": "+79885155515",
+      "priceRange": "₽₽",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "пер. Машиностроительный 7/1",
+        "addressLocality": "Ростов-на-Дону",
+        "addressRegion": "Ростовская область",
+        "postalCode": "344000",
+        "addressCountry": "RU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 47.2357,
+        "longitude": 39.7015
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "09:00",
+        "closes": "20:00"
+      },
+      "sameAs": [
+        "https://t.me/Udobna_Chat",
+        "https://www.youtube.com/@UdobnaMebel"
+      ]
+    }
+    </script>
 
 </body>
 </html>

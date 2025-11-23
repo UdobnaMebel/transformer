@@ -1,36 +1,35 @@
 /* --- НАСТРОЙКИ КОНТЕНТА --- */
 
-// 1. Название файла для обложки сайта (должен лежать в папке images)
+// 1. Название файла для обложки сайта
 const heroCover = "cover.jpg"; 
 
-// 2. Список файлов для слайдера (должны лежать в папке images)
+// 2. Список файлов для слайдера (Объекты с файлом и описанием для SEO)
+// Дублируем список для бесконечной прокрутки
 const sliderImages = [
-    "slide1.png",
-    "slide2.png",
-    "slide3.png",
-    "slide4.png",
-    "slide5.png",
-    "slide1.png",
-    "slide2.png",
-    "slide3.png",
-    "slide4.png",
-    "slide5.png"
+    // --- КРУГ 1 ---
+    { file: "slide1.png", alt: "Шкаф-кровать трансформер цена Ростов" },
+    { file: "slide2.png", alt: "Кровать-трансформер с диваном 3 в 1" },
+    { file: "slide3.png", alt: "Размеры шкаф-кровати Udobna" },
+    { file: "slide4.png", alt: "Цвета мебели трансформер на заказ" },
+    { file: "slide5.png", alt: "Преимущества откидной кровати" },
+    
+    // --- КРУГ 2 (Дубликаты для плавности) ---
+    { file: "slide1.png", alt: "Купить шкаф-кровать в Ростове-на-Дону" },
+    { file: "slide2.png", alt: "Мебель трансформер для малогабаритной квартиры" },
+    { file: "slide3.png", alt: "Схема размеров кровати-трансформера" },
+    { file: "slide4.png", alt: "Каталог цветов ЛДСП и Велюра" },
+    { file: "slide5.png", alt: "Производство мебели Udobna Ростов" },
+
 ];
 
-
-// Картинки для блока "О нас"
+// 3. Картинки для блока "О нас"
 const aboutImage1 = "about_us.jpg";   // Первая (исходная)
 const aboutImage2 = "about_us2.jpg";  // Вторая (на которую меняем)
 
-// ... (предыдущий код)
-
-// Видео для блока технических характеристик
+// 4. Видео для блока технических характеристик
 const mechanismVideo = "mechanism.mp4";
 
-/* --- ПРЕДЫДУЩИЙ КОД (ОБЛОЖКА, СЛАЙДЕР, ВИДЕО, О НАС) ОСТАВЛЯЕМ БЕЗ ИЗМЕНЕНИЙ --- */
-// ...
-
-// 4. Цвета и материалы (Файлы должны лежать в папке images/colors/)
+// 5. Цвета и материалы (Файлы должны лежать в папке files/colors/)
 const ldspColors = [
     { name: "Белый", file: "wood white.png" },
     { name: "Серый камень", file: "wood gray.png" },
@@ -47,13 +46,12 @@ const velourColors = [
     { name: "Синий", file: "velour blue.png" }
 ];
 
-
 /* --- 7. КОНТАКТЫ И ССЫЛКИ --- */
-// Прямые ссылки (Так надежнее, чем через файлы)
+// Прямые ссылки
 const linkWhatsApp = "https://wa.me/79885155515"; 
-const linkTelegram = "https://t.me/Udobna_Chat"; // Например: https://t.me/udobna_mebel
+const linkTelegram = "https://t.me/Udobna_Chat"; 
 const linkYoutube = "https://www.youtube.com/@UdobnaMebel";
 
-// Станет (вставьте свои цифры):
+// Настройки бота
 const telegramBotToken = "7558283184:AAHm6tbplgZNX0MgYi3ZC_aSF-dzc9jJndg"; 
 const telegramChatId = "1584547360";
