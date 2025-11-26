@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 if (!telegramBotToken || !telegramChatId) throw new Error("Токен не настроен в config.js");
 
-                const message = `🔥 <b>НОВАЯ ЗАЯВКА</b> 🔥%0A%0A👤 <b>Имя:</b> ${name}%0A📱 <b>Телефон:</b> ${phone}`;
+                const message = `🔥 <b>НОВАЯ ЗАЯВКА ШКАФ-КРОВАТЬ</b> 🔥%0A%0A👤 <b>Имя:</b> ${name}%0A📱 <b>Телефон:</b> ${phone}`;
                 const url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${telegramChatId}&text=${message}&parse_mode=html`;
 
                 const sendResponse = await fetch(url);
